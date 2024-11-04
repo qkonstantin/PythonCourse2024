@@ -1,11 +1,8 @@
 def find_common_participants(first_group, second_group, separator=','):
     first_group_split = first_group.split(separator)
     second_group_split = second_group.split(separator)
-    matches = []
 
-    for participant in first_group_split:
-        if participant in second_group_split:
-            matches.append(participant)
+    matches = list(set(first_group_split).intersection(second_group_split))
     matches.sort()
 
     return matches
