@@ -13,7 +13,10 @@ class Backpack:
         :param volume: Объем рюкзака в литрах.
         :param weight_limit: Максимально допустимый вес содержимого в килограммах.
         """
-
+        if not isinstance(volume, (int, float)):
+            raise TypeError("Объем рюкзака должен быть числом.")
+        if not isinstance(weight_limit, (int, float)):
+            raise TypeError("Максимально допустимый вес должен быть числом.")
         if volume <= 0:
             raise ValueError("Объем рюкзака должен быть положительным.")
         if weight_limit <= 0:
@@ -94,6 +97,10 @@ class Intercom:
         Примеры:
         >>> intercom = Intercom(101)
         """
+        if not isinstance(apartment_number, int):
+            raise TypeError("Номер квартиры должен быть целым числом.")
+        if not isinstance(is_locked, bool):
+            raise TypeError("Состояние двери (is_locked) должно быть логическим значением.")
         if apartment_number <= 0:
             raise ValueError("Номер квартиры должен быть положительным числом.")
         self.apartment_number = apartment_number
@@ -159,6 +166,12 @@ class Airplane:
         Примеры:
         >>> airplane = Airplane(900, 12000, 5000)
         """
+        if not isinstance(max_speed, (int, float)):
+            raise TypeError("Максимальная скорость должна быть числом.")
+        if not isinstance(max_altitude, (int, float)):
+            raise TypeError("Максимальная высота должна быть числом.")
+        if not isinstance(max_range, (int, float)):
+            raise TypeError("Максимальная дальность должна быть числом.")
         if max_speed <= 0:
             raise ValueError("Максимальная скорость должна быть положительным числом.")
         if max_altitude <= 0:
