@@ -23,6 +23,17 @@ class Animal:
         """
         return "Some generic animal sound"
 
+    def eat(self) -> str:
+        """
+        Возвращает описание действия поедания пищи.
+        
+        Этот метод оставлен без перегрузки в дочерних классах,
+        чтобы продемонстрировать наследование функционала из базового класса.
+        
+        :return: Строка с описанием еды.
+        """
+        return f"{self.name} is eating."
+
     def __str__(self) -> str:
         return f"{self.species} named {self.name}, age {self.age}"
 
@@ -49,7 +60,10 @@ class Dog(Animal):
     def make_sound(self) -> str:
         """
         Перегруженный метод, возвращающий лай собаки.
-
+        
+        Перегрузка необходима, чтобы возвращать специфичный звук для собаки,
+        а не общий звук из базового класса.
+        
         :return: Строка с описанием лая.
         """
         return "Woof!"
@@ -89,7 +103,10 @@ class Cat(Animal):
     def make_sound(self) -> str:
         """
         Перегруженный метод, возвращающий мяуканье кошки.
-
+        
+        Перегрузка позволяет задать специфичный звук для кошки,
+        отличающийся от общего звука базового класса.
+        
         :return: Строка с описанием мяуканья.
         """
         return "Meow!"
@@ -122,3 +139,7 @@ if __name__ == "__main__":
 
     print(dog.fetch("ball"))  # Вывод: Buddy is fetching the ball.
     print(cat.scratch())  # Вывод: Whiskers is scratching the furniture.
+    
+    # Демонстрация наследования метода eat из базового класса Animal
+    print(dog.eat())  # Вывод: Buddy is eating.
+    print(cat.eat())  # Вывод: Whiskers is eating.
